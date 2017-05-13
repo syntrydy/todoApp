@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<title>Todo App</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header"></div>
+		</div>
+	</nav>
+	<div class="container-fluid centerdiv">
+
+		<div class="row centerdiv">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form class="form-horizontal" action="#" th:action="@{task}"
+					th:object="${task}" method="post">
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input type="hidden" th:field="*{id}" class="form-control"
+								id="id"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="name" class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-10">
+							<input type="text" th:field="*{name}" class="form-control"
+								id="name" placeholder="task name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description" class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{description}"
+								id="description" placeholder="description" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label> <input type="checkbox" id="iscomplete" th:field="*{iscomplete}"/> completed
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-lg btn-primary">update</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+
+
+
+
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/style.js"></script>
+</body>
+</html>

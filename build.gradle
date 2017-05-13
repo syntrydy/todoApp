@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+		"se.transmode.gradle:gradle-docker:1.2")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'docker'
+apply plugin: 'application'
+
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+jar {
+    baseName = 'todo'
+    version =  '1.0.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.postgresql:postgresql')
+	testCompile('org.springframework.boot:spring-boot-starter-test',
+	 "info.cukes:cucumber-jvm:1.2.5",
+        "info.cukes:cucumber-core:1.2.5",
+        "info.cukes:cucumber-java:1.2.5",
+        "info.cukes:cucumber-junit:1.2.5",
+        "info.cukes:cucumber-spring:1.2.5",
+        'commons-io:commons-io:2.4')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
