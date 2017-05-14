@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <title>Todo App</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="../img/brand.jpg" />
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top">
@@ -21,7 +22,7 @@
 		<div class="row centerdiv">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				<form class="form-horizontal" action="#" th:action="@{task}"
+				<form class="form-horizontal" action="#" th:action="@{{id}(id=${task.id})}"
 					th:object="${task}" method="post">
 					<div class="form-group">
 						<div class="col-sm-10">

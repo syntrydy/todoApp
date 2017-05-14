@@ -27,4 +27,6 @@ public interface TodoService {
 
 	public void updateTask(Long b);
 
+	List<Task> searchTaskByTest(String text);
+
 }

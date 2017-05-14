@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<changeSet id="TODO-001" author="gasmyr.mougang">
+		<createTable tableName="task">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="task_pkey"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="iscomplete" type="bool" defaultValue="false" />
+		</createTable>
+	</changeSet>
+</databaseChangeLog>

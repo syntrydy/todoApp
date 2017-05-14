@@ -1,5 +1,6 @@
 package cm.gasmyr.mougang.todo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,13 @@ public class TodoServiceImpl implements TodoService {
 		Task task=todoRepository.getOne(id);	
 		task.setIscomplete(true);
 		todoRepository.save(task);
+	}
+	
+	@Override
+	public List<Task> searchTaskByTest(String text) {
+		List<Task> tasks=new ArrayList<>();
+		tasks.addAll(todoRepository.findTaskContaining(text));
+		return tasks;
 	}
 
 }
